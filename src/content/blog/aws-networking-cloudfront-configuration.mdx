@@ -1,0 +1,56 @@
+---
+title: CloudFront Configuration
+description: Learn how to configure AWS CloudFront for content delivery and caching.
+pubDate: 09/15/2025
+heroImage: ../../assets/cloudfront-config.webp
+---
+
+##### Table of Contents
+
+- [Introduction](#introduction)
+- [What is Distribution](#key-components)
+- [Create First CloudFront Distribution](#create-first-cloudfront-distribution)
+- [Cache & Performance Optimization](#cache--performance-optimization)
+- [Security](#security)
+- [Interation Partterns](#interation-partterns)
+- [Observability & Troubleshooting](#observability--troubleshooting)
+- [Cost Management](#cost-management)
+- [Hands-on Lab](#hands-on-lab)
+
+#### Introduction
+
+In this article, we will explain how AWS CloudFront works and how to configure it for content delivery and caching.
+Let focus to our labs:
+
+- Give an s3 bucket hosted on ap-southeast-1 region.
+- A lambda function to benchmark time to access to the bucket and it's hosted on us-east-1.
+- Our goal reduce the time to access to the bucket from lambda by using CloudFront.
+
+#### What is CloudFront Distribution?
+
+First, we need to understand what is **Distribution** in CloudFront.
+A **Distribution** is a collection of **Edge Locations** that deliver your content to users based on their geographic location. When you create a distribution, you specify the origin (the source of your content) and configure various settings to control how CloudFront delivers your content.
+There are two types of distributions in CloudFront:
+
+- **Multi-tenant**: This is the most common type of distribution, where multiple users share the same CloudFront infrastructure. Each user has their own distribution, but they share the same edge locations and caching infrastructure.
+- **Standard**: This type of distribution is used for high-security applications where you need to isolate your content from other users. Single-tenant distributions are more expensive than multi-tenant distributions, but they provide additional security features.
+We will deep dive to **Multi-tenant** distribution latter.
+For you example, we will create a **Standard** distribution and **understand all of options on this**.
+
+#### Host your own lab
+
+- Download content of lab here.
+- Use cdk boostrap for ap-southeast-1 region and us-east-1 region
+- Use cdk deploy --all to deploy all stacks
+- Check the output of s3 bucket name and lambda function name
+
+#### Test the lambda function time access to the bucket
+
+#### Create CloudFront Distribution
+
+- See labs
+- Labs contains 1 bucket hosted, need to create distribution for it.
+- Create the lamb function benmark time to acess to the bucket, serve this url
+- User can access to this url to see before and after use CloudFront
+
+#### Test the lambda function time access again

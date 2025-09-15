@@ -8,302 +8,303 @@ import QuestionQuizz from '../../components/QuestionQuizz.tsx';
 
 ##### Questions
 
-<QuestionQuizz 
-    content = "1. What is the main purpose of an Amazon VPC?" 
-    answers = {["A. Manage user identities", "B. Provide an isolated virtual network to launch AWS resources", "C. Store objects as files", "D. Distribute traffic globally via CDN"]} 
-    correctAnswers = {[1]} 
+<QuestionQuizz
+    content = "1. What is the main purpose of an Amazon VPC?"
+    answers = {["A. Manage user identities", "B. Provide an isolated virtual network to launch AWS resources", "C. Store objects as files", "D. Distribute traffic globally via CDN"]}
+    correctAnswers = {[1]}
     type = "multiple"
     level = "easy"
     explanation = "A VPC (Virtual Private Cloud) is an isolated virtual network environment where you launch AWS resources like EC2, RDS, etc."
     client:load
 />
 
-<QuestionQuizz 
-    content = "2. What does the CIDR block of a VPC define?" 
-    answers = {["A. DNS zone name", "B. IAM policy scope", "C. The IP address range available inside the VPC", "D. Region latency"]} 
-    correctAnswers = {[2]} 
+<QuestionQuizz
+    content = "2. What does the CIDR block of a VPC define?"
+    answers = {["A. DNS zone name", "B. IAM policy scope", "C. The IP address range available inside the VPC", "D. Region latency"]}
+    correctAnswers = {[2]}
     type = "multiple"
     level = "easy"
     explanation = "The CIDR block defines the private IP range that subnets and resources will use."
     client:load
 />
 
-<QuestionQuizz 
-    content = "3. What makes a subnet a public subnet?" 
-    answers = {["A. It has a larger CIDR than the VPC", "B. Its route table has a route to an Internet Gateway", "C. It contains only EC2 instances", "D. It uses IPv6 only"]} 
-    correctAnswers = {[1]} 
+<QuestionQuizz
+    content = "3. What makes a subnet a public subnet?"
+    answers = {["A. It has a larger CIDR than the VPC", "B. Its route table has a route to an Internet Gateway", "C. It contains only EC2 instances", "D. It uses IPv6 only"]}
+    correctAnswers = {[1]}
     type = "multiple"
     level = "easy"
     explanation = "A subnet is public if its route table contains a 0.0.0.0/0 (and/or ::/0) route pointing to an Internet Gateway."
     client:load
 />
 
-<QuestionQuizz 
-    content = "4. What is the main role of a NAT Gateway?" 
-    answers = {["A. Allow inbound SSH from the internet", "B. Allow private instances to access the internet outbound", "C. Distribute HTTP traffic", "D. Host a database"]} 
-    correctAnswers = {[1]} 
+<QuestionQuizz
+    content = "4. What is the main role of a NAT Gateway?"
+    answers = {["A. Allow inbound SSH from the internet", "B. Allow private instances to access the internet outbound", "C. Distribute HTTP traffic", "D. Host a database"]}
+    correctAnswers = {[1]}
     type = "multiple"
     level = "easy"
     explanation = "A NAT Gateway enables outbound-only internet access for resources in private subnets."
     client:load
 />
 
-<QuestionQuizz 
-    content = "5. Which AWS component attaches to a VPC to enable public internet access?" 
-    answers = {["A. Transit Gateway", "B. Internet Gateway", "C. Interface Endpoint", "D. Customer Gateway"]} 
-    correctAnswers = {[1]} 
+<QuestionQuizz
+    content = "5. Which AWS component attaches to a VPC to enable public internet access?"
+    answers = {["A. Transit Gateway", "B. Internet Gateway", "C. Interface Endpoint", "D. Customer Gateway"]}
+    correctAnswers = {[1]}
     type = "multiple"
     level = "easy"
     explanation = "An Internet Gateway provides a target in route tables for public internet traffic."
     client:load
 />
 
-<QuestionQuizz 
-    content = "6. Which is stateful: Security Groups or Network ACLs?" 
-    answers = {["A. Only Network ACLs", "B. Both are stateless", "C. Security Groups", "D. Neither"]} 
-    correctAnswers = {[2]} 
+<QuestionQuizz
+    content = "6. Which is stateful: Security Groups or Network ACLs?"
+    answers = {["A. Only Network ACLs", "B. Both are stateless", "C. Security Groups", "D. Neither"]}
+    correctAnswers = {[2]}
     type = "multiple"
     level = "easy"
     explanation = "Security Groups are stateful; return traffic is automatically allowed if the original request was permitted."
     client:load
 />
 
-<QuestionQuizz 
-    content = "7. Where do Network ACLs apply?" 
-    answers = {["A. At the VPC edge only", "B. At the subnet level", "C. Per ENI", "D. Per application port"]} 
-    correctAnswers = {[1]} 
+<QuestionQuizz
+    content = "7. Where do Network ACLs apply?"
+    answers = {["A. At the VPC edge only", "B. At the subnet level", "C. Per ENI", "D. Per application port"]}
+    correctAnswers = {[1]}
     type = "multiple"
     level = "easy"
     explanation = "Network ACLs act as stateless packet filters at the subnet boundary."
     client:load
 />
 
-<QuestionQuizz 
-    content = "8. Which resource commonly resides in a private subnet?" 
-    answers = {["A. Public-facing ALB", "B. NAT Gateway", "C. RDS database instance", "D. Internet Gateway"]} 
-    correctAnswers = {[2]} 
+<QuestionQuizz
+    content = "8. Which resource commonly resides in a private subnet?"
+    answers = {["A. Public-facing ALB", "B. NAT Gateway", "C. RDS database instance", "D. Internet Gateway"]}
+    correctAnswers = {[2]}
     type = "multiple"
     level = "easy"
     explanation = "Databases are typically kept in private subnets without direct internet exposure."
     client:load
 />
 
-<QuestionQuizz 
-    content = "9. Why deploy resources across multiple Availability Zones?" 
-    answers = {["A. Reduce IAM usage", "B. Improve high availability and fault tolerance", "C. Enable lower pricing for EC2", "D. Avoid using route tables"]} 
-    correctAnswers = {[1]} 
+<QuestionQuizz
+    content = "9. Why deploy resources across multiple Availability Zones?"
+    answers = {["A. Reduce IAM usage", "B. Improve high availability and fault tolerance", "C. Enable lower pricing for EC2", "D. Avoid using route tables"]}
+    correctAnswers = {[1]}
     type = "multiple"
     level = "easy"
     explanation = "Multi-AZ deployment helps avoid single points of failure and improves resiliency."
     client:load
 />
 
-<QuestionQuizz 
-    content = "10. What does an Elastic IP provide?" 
-    answers = {["A. A static public IPv4 address", "B. Automatic DNS zone", "C. A private IPv6 address", "D. Built-in DDoS protection only"]} 
-    correctAnswers = {[0]} 
+<QuestionQuizz
+    content = "10. What does an Elastic IP provide?"
+    answers = {["A. A static public IPv4 address", "B. Automatic DNS zone", "C. A private IPv6 address", "D. Built-in DDoS protection only"]}
+    correctAnswers = {[0]}
     type = "multiple"
     level = "easy"
     explanation = "Elastic IPs are persistent public IPv4 addresses that you can remap across instances."
     client:load
 />
 
-<QuestionQuizz 
-    content = "11. Why assign separate route tables to public and private subnets?" 
-    answers = {["A. So private subnets avoid direct IGW routes", "B. To eliminate need for Security Groups", "C. To isolate routing intent per subnet type", "D. To force DNS failures in private subnets"]} 
-    correctAnswers = {[0,2]} 
+<QuestionQuizz
+    content = "11. Why assign separate route tables to public and private subnets?"
+    answers = {["A. So private subnets avoid direct IGW routes", "B. To eliminate need for Security Groups", "C. To isolate routing intent per subnet type", "D. To force DNS failures in private subnets"]}
+    correctAnswers = {[0,2]}
     type = "multiple"
     level = "medium"
     explanation = "Different route tables clarify routing intent and prevent accidental public exposure."
     client:load
 />
 
-<QuestionQuizz 
-    content = "12. Which combination enables secure admin SSH into private instances?" 
-    answers = {["A. Bastion host in public subnet + SG limiting SSH", "B. Direct IGW route in private subnet", "C. Public IP on each private instance", "D. VPN or SSM Session Manager access"]} 
-    correctAnswers = {[0,3]} 
+<QuestionQuizz
+    content = "12. Which combination enables secure admin SSH into private instances?"
+    answers = {["A. Bastion host in public subnet + SG limiting SSH", "B. Direct IGW route in private subnet", "C. Public IP on each private instance", "D. VPN or SSM Session Manager access"]}
+    correctAnswers = {[0,3]}
     type = "multiple"
     level = "medium"
     explanation = "Use a controlled entry point (bastion) or AWS Systems Manager/VPN; do not assign public IPs to private tier."
     client:load
 />
 
-<QuestionQuizz 
-    content = "13. Why avoid overlapping CIDR blocks across VPCs?" 
-    answers = {["A. Causes peering failures", "B. Breaks IGW attachment", "C. Creates ambiguous routing for VPN/Transit Gateway", "D. Forces NAT Gateway usage"]} 
-    correctAnswers = {[0,2]} 
+<QuestionQuizz
+    content = "13. Why avoid overlapping CIDR blocks across VPCs?"
+    answers = {["A. Causes peering failures", "B. Breaks IGW attachment", "C. Creates ambiguous routing for VPN/Transit Gateway", "D. Forces NAT Gateway usage"]}
+    correctAnswers = {[0,2]}
     type = "multiple"
     level = "medium"
     explanation = "Overlapping space complicates or blocks peering and introduces ambiguity in route propagation."
     client:load
 />
 
-<QuestionQuizz 
-    content = "14. Which enhance defense in depth for a database layer?" 
-    answers = {["A. Private subnet placement", "B. SG referencing only app tier SG", "C. NACL restricting inbound ports", "D. Public Elastic IP for maintenance"]} 
-    correctAnswers = {[0,1,2]} 
+<QuestionQuizz
+    content = "14. Which enhance defense in depth for a database layer?"
+    answers = {["A. Private subnet placement", "B. SG referencing only app tier SG", "C. NACL restricting inbound ports", "D. Public Elastic IP for maintenance"]}
+    correctAnswers = {[0,1,2]}
     type = "multiple"
     level = "medium"
     explanation = "Layered controls (private isolation, SG scoping, optional NACL restrictions) strengthen security; public IP is avoided."
     client:load
 />
 
-<QuestionQuizz 
-    content = "15. Benefits of using VPC Interface Endpoints (PrivateLink)?" 
-    answers = {["A. Keep traffic off public internet", "B. Provide private ENI-based access to services", "C. Enable transitive routing between VPCs", "D. Potentially reduce NAT egress costs"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "15. Benefits of using VPC Interface Endpoints (PrivateLink)?"
+    answers = {["A. Keep traffic off public internet", "B. Provide private ENI-based access to services", "C. Enable transitive routing between VPCs", "D. Potentially reduce NAT egress costs"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "medium"
     explanation = "Interface Endpoints create ENIs for private service access; they are not transitive routers."
     client:load
 />
 
-<QuestionQuizz 
-    content = "16. Why deploy one NAT Gateway per AZ for private subnets?" 
-    answers = {["A. Avoid cross-AZ data charges", "B. Increase resiliency if one AZ fails", "C. Required to use IPv6", "D. Reduce single point of failure"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "16. Why deploy one NAT Gateway per AZ for private subnets?"
+    answers = {["A. Avoid cross-AZ data charges", "B. Increase resiliency if one AZ fails", "C. Required to use IPv6", "D. Reduce single point of failure"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "medium"
     explanation = "Distributing NAT Gateways improves availability and may reduce inter-AZ traffic costs."
     client:load
 />
 
-<QuestionQuizz 
-    content = "17. What advantages does a Transit Gateway provide over full mesh peering?" 
-    answers = {["A. Hub-and-spoke simplification", "B. Automatic transitive routing", "C. Eliminates need for route tables in VPCs", "D. Centralized connectivity management"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "17. What advantages does a Transit Gateway provide over full mesh peering?"
+    answers = {["A. Hub-and-spoke simplification", "B. Automatic transitive routing", "C. Eliminates need for route tables in VPCs", "D. Centralized connectivity management"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "medium"
     explanation = "Transit Gateway centralizes routing; you still manage VPC route tables to point toward it."
     client:load
 />
 
-<QuestionQuizz 
-    content = "18. Which tools assist in analyzing network traffic inside a VPC?" 
-    answers = {["A. VPC Flow Logs", "B. Traffic Mirroring", "C. CloudWatch Logs integration", "D. Security Group Peering"]} 
-    correctAnswers = {[0,1,2]} 
+<QuestionQuizz
+    content = "18. Which tools assist in analyzing network traffic inside a VPC?"
+    answers = {["A. VPC Flow Logs", "B. Traffic Mirroring", "C. CloudWatch Logs integration", "D. Security Group Peering"]}
+    correctAnswers = {[0,1,2]}
     type = "multiple"
     level = "medium"
     explanation = "Flow Logs + Mirroring + CloudWatch provide visibility; SG Peering is not a feature."
     client:load
 />
 
-<QuestionQuizz 
-    content = "19. Why use gateway endpoints for S3/DynamoDB instead of NAT Gateway?" 
-    answers = {["A. Reduce NAT data processing costs", "B. Keep traffic on AWS private network", "C. Grant transitive routing to other VPCs automatically", "D. Apply fine-grained policies for access"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "19. Why use gateway endpoints for S3/DynamoDB instead of NAT Gateway?"
+    answers = {["A. Reduce NAT data processing costs", "B. Keep traffic on AWS private network", "C. Grant transitive routing to other VPCs automatically", "D. Apply fine-grained policies for access"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "medium"
     explanation = "Gateway endpoints provide private, policy-controlled access without traversing a NAT."
     client:load
 />
 
-<QuestionQuizz 
-    content = "20. Which practices secure outbound (egress) traffic from private subnets?" 
-    answers = {["A. Restrictive SG egress rules", "B. NAT Gateway plus specific routing", "C. VPC Endpoint policies", "D. Allow all 0.0.0.0/0 everywhere"]} 
-    correctAnswers = {[0,1,2]} 
+<QuestionQuizz
+    content = "20. Which practices secure outbound (egress) traffic from private subnets?"
+    answers = {["A. Restrictive SG egress rules", "B. NAT Gateway plus specific routing", "C. VPC Endpoint policies", "D. Allow all 0.0.0.0/0 everywhere"]}
+    correctAnswers = {[0,1,2]}
     type = "multiple"
     level = "medium"
     explanation = "Combining SG egress filtering, controlled routes, and endpoint policies reduces exfiltration risk."
     client:load
 />
 
-<QuestionQuizz 
-    content = "21. In a multi-account architecture, why centralize shared services (e.g., Directory, CI) in a separate VPC?" 
-    answers = {["A. Minimize duplicated tooling", "B. Enforce strict access boundaries via routing and SGs", "C. Eliminate need for encryption at rest", "D. Simplify lifecycle management and isolation"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "21. In a multi-account architecture, why centralize shared services (e.g., Directory, CI) in a separate VPC?"
+    answers = {["A. Minimize duplicated tooling", "B. Enforce strict access boundaries via routing and SGs", "C. Eliminate need for encryption at rest", "D. Simplify lifecycle management and isolation"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "hard"
     explanation = "Central shared services reduce duplication and can be tightly controlled; encryption needs still apply."
     client:load
 />
 
-<QuestionQuizz 
-    content = "22. What challenges appear when scaling to hundreds of VPCs without Transit Gateway?" 
-    answers = {["A. Peering connection explosion", "B. Route table management overhead", "C. Automatic transitive routing reduces complexity", "D. CIDR planning complexity"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "22. What challenges appear when scaling to hundreds of VPCs without Transit Gateway?"
+    answers = {["A. Peering connection explosion", "B. Route table management overhead", "C. Automatic transitive routing reduces complexity", "D. CIDR planning complexity"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "hard"
     explanation = "Large meshes create peering and routing sprawl; transitive routing is not automatic with peering."
     client:load
 />
 
-<QuestionQuizz 
-    content = "23. Which strategies mitigate IP address exhaustion in large multi-VPC ecosystems?" 
-    answers = {["A. Hierarchical CIDR allocation (supernet carving)", "B. Early IPv6 adoption", "C. Random ad-hoc CIDR assignment", "D. Central address management (IPAM)"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "23. Which strategies mitigate IP address exhaustion in large multi-VPC ecosystems?"
+    answers = {["A. Hierarchical CIDR allocation (supernet carving)", "B. Early IPv6 adoption", "C. Random ad-hoc CIDR assignment", "D. Central address management (IPAM)"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "hard"
     explanation = "Structured planning and tooling (IPAM) plus IPv6 readiness reduce future exhaustion risk."
     client:load
 />
 
-<QuestionQuizz 
-    content = "24. Why might you introduce egress filtering with a proxy layer in addition to SG/NACL rules?" 
-    answers = {["A. Layer 7 inspection & domain-based control", "B. Centralized logging & audit", "C. Reduce TLS usage", "D. Enforce DLP or malware scanning"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "24. Why might you introduce egress filtering with a proxy layer in addition to SG/NACL rules?"
+    answers = {["A. Layer 7 inspection & domain-based control", "B. Centralized logging & audit", "C. Reduce TLS usage", "D. Enforce DLP or malware scanning"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "hard"
     explanation = "A proxy adds application-layer control and inspection beyond basic IP/port filtering."
     client:load
 />
 
-<QuestionQuizz 
-    content = "25. What design considerations are critical for multi-region active-active architectures?" 
-    answers = {["A. Globally unique non-overlapping CIDRs", "B. Latency-aware DNS or traffic routing (e.g., Route 53)", "C. Ignoring data consistency impacts", "D. Replication strategy (databases/state)"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "25. What design considerations are critical for multi-region active-active architectures?"
+    answers = {["A. Globally unique non-overlapping CIDRs", "B. Latency-aware DNS or traffic routing (e.g., Route 53)", "C. Ignoring data consistency impacts", "D. Replication strategy (databases/state)"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "hard"
     explanation = "Active-active needs careful IP planning, intelligent routing, and consistent state replication."
     client:load
 />
 
-<QuestionQuizz 
-    content = "26. When integrating on-prem with multiple VPCs, why use a Transit Gateway over individual VPN attachments?" 
-    answers = {["A. Aggregated routing hub", "B. Simplified scaling vs many VPN tunnels", "C. Eliminates need for BGP", "D. Central policy enforcement"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "26. When integrating on-prem with multiple VPCs, why use a Transit Gateway over individual VPN attachments?"
+    answers = {["A. Aggregated routing hub", "B. Simplified scaling vs many VPN tunnels", "C. Eliminates need for BGP", "D. Central policy enforcement"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "hard"
     explanation = "Transit Gateway centralizes connectivity and policies; BGP may still be used for dynamic routing."
     client:load
 />
 
-<QuestionQuizz 
-    content = "27. Which risks arise from broad 0.0.0.0/0 inbound ALB security group rules combined with permissive target SGs?" 
-    answers = {["A. Expanded attack surface", "B. Reduced ability to isolate compromised instances", "C. Automatic credential rotation", "D. Potential lateral movement"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "27. Which risks arise from broad 0.0.0.0/0 inbound ALB security group rules combined with permissive target SGs?"
+    answers = {["A. Expanded attack surface", "B. Reduced ability to isolate compromised instances", "C. Automatic credential rotation", "D. Potential lateral movement"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "hard"
     explanation = "Overly broad ingress and permissive targets can enable lateral movement and widen exposure."
     client:load
 />
 
-<QuestionQuizz 
-    content = "28. What advanced controls help segment East-West traffic inside a VPC?" 
-    answers = {["A. Security Group referencing", "B. Micro-segmentation via additional SG tiers", "C. Separate VPCs for drastically different trust zones", "D. Disabling all Flow Logs"]} 
-    correctAnswers = {[0,1,2]} 
+<QuestionQuizz
+    content = "28. What advanced controls help segment East-West traffic inside a VPC?"
+    answers = {["A. Security Group referencing", "B. Micro-segmentation via additional SG tiers", "C. Separate VPCs for drastically different trust zones", "D. Disabling all Flow Logs"]}
+    correctAnswers = {[0,1,2]}
     type = "multiple"
     level = "hard"
     explanation = "Layered segmentation uses SG scoping, micro-segmentation patterns, or separate VPC boundaries; disabling logs harms visibility."
     client:load
 />
 
-<QuestionQuizz 
-    content = "29. Why might you adopt IPv6-only subnets with egress-only internet gateways?" 
-    answers = {["A. Simplify NAT dependency removal", "B. Provide globally unique addresses without overlapping risk", "C. Eliminate need for security controls", "D. Maintain outbound-only posture for workloads"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "29. Why might you adopt IPv6-only subnets with egress-only internet gateways?"
+    answers = {["A. Simplify NAT dependency removal", "B. Provide globally unique addresses without overlapping risk", "C. Eliminate need for security controls", "D. Maintain outbound-only posture for workloads"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "hard"
     explanation = "IPv6-only design removes IPv4 NAT, keeps uniqueness, and with egress-only gateways preserves outbound-only exposure."
     client:load
 />
 
-<QuestionQuizz 
-    content = "30. Which combined measures strengthen supply chain and egress security for build pipelines in a VPC?" 
-    answers = {["A. Private VPC endpoints for artifact repositories", "B. Restrictive outbound allow-list via proxy", "C. Open all outbound to simplify builds", "D. Code signing & checksum validation"]} 
-    correctAnswers = {[0,1,3]} 
+<QuestionQuizz
+    content = "30. Which combined measures strengthen supply chain and egress security for build pipelines in a VPC?"
+    answers = {["A. Private VPC endpoints for artifact repositories", "B. Restrictive outbound allow-list via proxy", "C. Open all outbound to simplify builds", "D. Code signing & checksum validation"]}
+    correctAnswers = {[0,1,3]}
     type = "multiple"
     level = "hard"
     explanation = "Private endpoints, controlled egress, and integrity validation reduce supply chain compromise risks."
     client:load
 />
+
