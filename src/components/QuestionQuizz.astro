@@ -1,4 +1,71 @@
-
 ---
 const { content, answers, correctAnswer, explanation, type } = Astro.props;
 ---
+
+<details class="question-collapsible">
+  <summary class="question-summary">
+    <span class="question-content">{content}</span>
+  </summary>
+  <div class="question-container">
+      <div class="question-answers">
+          {answers.map((answer: string, index: number) => (
+              <div class="question-answer">
+                  <input type={
+                      type == "multiple" ? "checkbox" : "radio"
+                  }
+                  id={answer}
+                  name="quiz"
+                  value={answer}
+                   />
+                  <label for={answer}>{answer}</label>
+              </div>
+          ))}
+      </div>
+
+      <div class="question-footer">
+          <button class="submit-button">Submit</button>
+      </div>
+  </div>
+</details>
+
+<style>
+    .question-collapsible {
+        background-color: #eee;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+    .question-summary {
+        font-style: italic;
+        font-size: 20px;
+        padding: 10px;
+        cursor: pointer;
+        outline: none;
+    }
+    .question-container {
+        padding: 10px;
+    }
+    .question-answers {
+        display: flex;
+        flex-direction: column;
+    }
+    .question-answer {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .question-footer {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .submit-button {
+        background-color: black;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .question-explanation {
+    }
+</style>
