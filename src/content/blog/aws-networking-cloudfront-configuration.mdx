@@ -4,6 +4,8 @@ description: Learn how to configure AWS CloudFront for content delivery and cach
 pubDate: 09/15/2025
 heroImage: ../../assets/cloudfront-config.webp
 ---
+import FetchTimeChart from '../../components/FetchTimeChart';
+import Image from '../../components/Image';
 
 ##### Table of Contents
 
@@ -17,7 +19,7 @@ heroImage: ../../assets/cloudfront-config.webp
 - [Cost Management](#cost-management)
 - [Hands-on Lab](#hands-on-lab)
 
-#### Introduction
+### 1. Introduction
 
 In this article, we will explain how AWS CloudFront works and how to configure it for content delivery and caching.
 Let focus to our labs:
@@ -26,7 +28,7 @@ Let focus to our labs:
 - A lambda function to benchmark time to access to the bucket and it's hosted on us-east-1.
 - Our goal reduce the time to access to the bucket from lambda by using CloudFront.
 
-#### What is CloudFront Distribution?
+### 2. What is CloudFront Distribution?
 
 First, we need to understand what is **Distribution** in CloudFront.
 A **Distribution** is a collection of **Edge Locations** that deliver your content to users based on their geographic location. When you create a distribution, you specify the origin (the source of your content) and configure various settings to control how CloudFront delivers your content.
@@ -37,20 +39,59 @@ There are two types of distributions in CloudFront:
 We will deep dive to **Multi-tenant** distribution latter.
 For you example, we will create a **Standard** distribution and **understand all of options on this**.
 
-#### Host your own lab
+### 3. Host your own lab
 
 - Download content of lab here.
 - Use cdk boostrap for ap-southeast-1 region and us-east-1 region
 - Use cdk deploy --all to deploy all stacks
-- Check the output of s3 bucket name and lambda function name
 
-#### Test the lambda function time access to the bucket
+#### 3.1 Preview the lab
 
-#### Create CloudFront Distribution
+##### 3.1.1 Preview Website Content
 
-- See labs
-- Labs contains 1 bucket hosted, need to create distribution for it.
-- Create the lamb function benmark time to acess to the bucket, serve this url
-- User can access to this url to see before and after use CloudFront
+- To get s3 bucket link, go to CloudFormation > Stacks > CloudFrontStack (remeber to select **ap-southeast-1** region) > Outputs > BucketWebsiteURL
+<Image src="https://github.com/lukas-labs/first-cloudfront-distribution/blob/master/images/s3-bucket-output.png?raw=true" client:load description="Please note that your region is ap-southeast-1"/>
 
-#### Test the lambda function time access again
+- This is the link to access to the our website hosted on s3 bucket, now try to access to this link and browse file index.html
+<Image client:load src="https://github.com/lukas-labs/first-cloudfront-distribution/blob/master/images/ourwebsite-preview.png?raw=true" description="As you can see, this is a simple website hosted on s3 bucket with Hello World message" />
+
+##### 3.1.2 Preview Lambda Function
+
+- I Created lambda function hosted on us-east-1 region, it will access to the s3 bucket and benchmark time to access to the bucket.
+- Go toCreate a lambda function to benchmark time to access to the bucket, go to CloudFormation > Stacks > LambdaStack (remeber to select **us-east-1** region) > Outputs > LambdaFunctionName CloudFormation > Stacks > LambdaStack (remeber to select **us-east-1** region) > Outputs > LambdaFunctionUrl
+<Image client:load src="https://github.com/lukas-labs/first-cloudfront-distribution/blob/master/images/api-gateway-output.png?raw=true" description="Our api url to benchmark"/>
+- Now let's access to this url to see the benchmark result, query parameter **?url=** is the s3 bucket link we got above
+<Image client:load src="https://github.com/lukas-labs/first-cloudfront-distribution/blob/master/images/fetch-time-api-preview.png?raw=true" description = "Notice that the fetch time is 1217 ms"/>
+- But how to get best of the oservability?, we need to call this api multiple times to see the average time to access to the bucket. Enter your api url bellow to see the chart
+
+<FetchTimeChart client:only />
+
+- As you can see, the average time to access to the bucket is around 200ms, this is not good for user experience.
+
+**_This is your question, why the first time access to the bucket, time too hight?_**
+
+### 4.2 Create CloudFront Distribution
+
+- Go to CloudFront console, and create a new distribution
+
+<Image client:load src="https://github.com/lukas-labs/first-cloudfront-distribution/blob/master/images/create-distribution-step1.png?raw=true" description="Create your distribution with type is Single website"/>
+<Image client:load src="https://github.com/lukas-labs/first-cloudfront-distribution/blob/master/images/create-distribution-step2.png?raw=true" description="Select origin is your s3 bucket"/>
+<Image client:load src="https://github.com/lukas-labs/first-cloudfront-distribution/blob/master/images/create-distribution-step3.png?raw=true" description="Disable protection for cost effective (we will deep dive to it latter)"/>
+
+- After create distribution, it will take around 15 minutes to deploy your distribution to all edge locations.
+<Image client:load src="https://github.com/lukas-labs/first-cloudfront-distribution/blob/master/images/distribution-preview.png?raw=true" description="Your distribution is deployed"/>
+- You can get your distribution domain name from here, it will be like d123456abcdef8.cloudfront.net, try to access to this link, you will see the same content as your s3 bucket link _(remember /index.html path)_.
+<Image client:load src="https://github.com/lukas-labs/first-cloudfront-distribution/blob/master/images/ourwebsite-distribution-preview.png?raw=true" description="Hello World is in every where https://github.com/lukas-labs/first-cloudfront-distribution/blob/master/images/ourwebsite-distribution-preview."  description="Hello world is on over the world ㋡"/>
+
+- Test the lambda function time access again
+
+<FetchTimeChart client:only />
+- As you can see, the average time to access to the bucket is around 50ms, this is a good improvement for user experience.
+
+### 5. Conclusion
+
+In this article, we have learned how to configure AWS CloudFront for content delivery and caching. We have also learned how to create a CloudFront distribution and how to use it to improve the performance of our website.
+
+We have also learned how to use CloudFront to improve the performance of our website by caching content at edge locations around the world. This reduces latency and improves the user experience for our users.
+
+See you in next article.
